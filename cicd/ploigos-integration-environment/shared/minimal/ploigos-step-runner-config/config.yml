@@ -27,14 +27,14 @@ step-runner-config:
   - implementer: Git
   - implementer: SemanticVersion
 
-  unit-test:
-  - implementer: Maven
-
   package:
-  - implementer: Maven
+  - implementer: MavenPackage
 
   create-container-image:
-  - implementer: Buildah
+  - implementer: MavenJKubeK8sBuild
+    config:
+      maven-profiles:
+      - kubernetes
 
   push-container-image:
   - implementer: Skopeo

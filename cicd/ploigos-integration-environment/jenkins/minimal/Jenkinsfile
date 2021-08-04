@@ -20,5 +20,5 @@ ploigosWorkflowMinimal(
 
     workflowWorkersImagePullPolicy: 'Always',
     stepRunnerUpdateLibrary: true,
-    stepRunnerLibSourceUrl: 'git+https://github.com/itewk/ploigos-step-runner.git@feature/use-local-container-storage-refactor'
+    stepRunnerLibSourceUrl: 'git+https://github.com/itewk/ploigos-step-runner.git@feature/jkube'
 )
