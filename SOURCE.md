@@ -1,0 +1,1 @@
+https://github.com/eclipse/jkube/tree/b25157bcafb4a9b6b738a0fce018fc3803e6b78e/quickstarts/maven/spring-boot-helm

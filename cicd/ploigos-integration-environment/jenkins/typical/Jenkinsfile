@@ -1,0 +1,29 @@
+// Load the Ploigos Jenkins Library
+library identifier: 'ploigos-jenkins-library@v0.19.1',
+retriever: modernSCM([
+    $class: 'GitSCMSource',
+    remote: 'https://github.com/ploigos/ploigos-jenkins-library.git'
+])
+
+// run the pipeline
+ploigosWorkflowTypical(
+    stepRunnerConfigDir: 'cicd/ploigos-integration-environment/jenkins/typical/ploigos-step-runner-config/',
+
+    pgpKeysSecretName: 'pgp-keys-ploigos-workflow-ref-quarkus-mvn-jenkins-typ-fruit',
+    workflowServiceAccountName: 'ploigos-workflow-ref-quarkus-mvn-jenkins-typ-fruit',
+
+    workflowWorkerImageDefault: 'ploigos/ploigos-base:edge',
+    workflowWorkerImageAgent: 'ploigos/ploigos-ci-agent-jenkins:edge',
+    workflowWorkerImageUnitTest: 'ploigos/ploigos-tool-maven:edge',
+    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:edge',
+    workflowWorkerImageStaticCodeAnalysis: 'ploigos/ploigos-tool-sonar:edge',
+    workflowWorkerImagePushArtifacts: 'ploigos/ploigos-tool-maven:edge',
+    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-containers:edge',
+    workflowWorkerImageContainerImageStaticVulnerabilityScan: 'ploigos/ploigos-tool-openscap:edge',
+    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:edge',
+    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:edge',
+
+    workflowWorkersImagePullPolicy: 'Always',
+    stepRunnerUpdateLibrary: true,
+    stepRunnerLibSourceUrl: 'git+https://github.com/itewk/ploigos-step-runner.git@feature/use-local-container-storage-refactor'
+)
