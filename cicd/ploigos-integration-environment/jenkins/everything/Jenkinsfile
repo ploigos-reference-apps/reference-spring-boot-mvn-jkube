@@ -18,7 +18,7 @@ ploigosWorkflowEverything(
     workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:edge',
     workflowWorkerImageStaticCodeAnalysis: 'ploigos/ploigos-tool-sonar:edge',
     workflowWorkerImagePushArtifacts: 'ploigos/ploigos-tool-maven:edge',
-    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-containers:edge',
+    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-jkube:edge',
     workflowWorkerImageContainerImageStaticComplianceScan: 'ploigos/ploigos-tool-openscap:edge',
     workflowWorkerImageContainerImageStaticVulnerabilityScan: 'ploigos/ploigos-tool-openscap:edge',
     workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:edge',

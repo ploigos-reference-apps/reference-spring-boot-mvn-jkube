@@ -15,7 +15,7 @@ ploigosWorkflowMinimal(
     workflowWorkerImageDefault: 'ploigos/ploigos-base:edge',
     workflowWorkerImageAgent: 'ploigos/ploigos-ci-agent-jenkins:edge',
     workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:edge',
-    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-containers:edge',
+    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-jkube:edge',
     workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:edge',
 
     workflowWorkersImagePullPolicy: 'Always',
