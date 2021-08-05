@@ -9,8 +9,8 @@ retriever: modernSCM([
 ploigosWorkflowMinimal(
     stepRunnerConfigDir: 'cicd/ploigos-integration-environment/jenkins/minimal/ploigos-step-runner-config/',
 
-    pgpKeysSecretName: 'pgp-keys-ploigos-workflow-ref-spring-boot-mvn-jkube-hello',
-    workflowServiceAccountName: 'ploigos-workflow-ref-spring-boot-mvn-jkube-hello',
+    pgpKeysSecretName: 'pgp-keys-ploigos-workflow-ref-spring-boot-jkube-min-hello',
+    workflowServiceAccountName: 'ploigos-workflow-ref-spring-boot-jkube-min-hello',
 
     workflowWorkerImageDefault: 'ploigos/ploigos-base:edge',
     workflowWorkerImageAgent: 'ploigos/ploigos-ci-agent-jenkins:edge',
