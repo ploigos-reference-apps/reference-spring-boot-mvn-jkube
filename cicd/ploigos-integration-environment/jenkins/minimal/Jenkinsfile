@@ -12,13 +12,13 @@ ploigosWorkflowMinimal(
     pgpKeysSecretName: 'pgp-keys-ploigos-workflow-ref-spring-boot-jkube-min-hello',
     workflowServiceAccountName: 'ploigos-workflow-ref-spring-boot-jkube-min-hello',
 
-    workflowWorkerImageDefault: 'ploigos/ploigos-base:edge',
-    workflowWorkerImageAgent: 'ploigos/ploigos-ci-agent-jenkins:edge',
-    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:edge',
-    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-jkube:edge',
-    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:edge',
+    workflowWorkerImageDefault: 'ploigos/ploigos-base:v0.20.0',
+    workflowWorkerImageAgent: 'ploigos/ploigos-ci-agent-jenkins:v0.20.0',
+    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:v0.20.0',
+    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-jkube:v0.20.0',
+    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:v0.20.0',
 
-    workflowWorkersImagePullPolicy: 'Always',
+    workflowWorkersImagePullPolicy: 'IfNotPresent',
     stepRunnerUpdateLibrary: true,
     stepRunnerLibSourceUrl: 'git+https://github.com/itewk/ploigos-step-runner.git@feature/jkube'
 )
