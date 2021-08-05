@@ -51,7 +51,7 @@ public class StepDefinitions {
 
     @When("^I get (.*)$")
     public void i_get_collection(String path) throws Throwable {
-        if(path == "root") {
+        if(path.equals("root")) {
             path = "";
         }
 
@@ -61,7 +61,7 @@ public class StepDefinitions {
 
     @Then("^I should get (.*)$")
     public void i_should_get(String expected) throws Throwable {
-        assertTrue(body == expected);
+        assertTrue(body.equals(expected));
     }
 
     @Then("I clean up")
