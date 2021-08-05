@@ -184,6 +184,26 @@
         </plugins>
       </build>
     </profile>
+    <profile>
+      <id>integration-test</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-surefire-plugin</artifactId>
+            <version>2.19.1</version>
+            <configuration>
+              <excludes>
+                <exclude>none</exclude>
+              </excludes>
+              <includes>
+                <include>**/RunCucumberTest.java</include>
+              </includes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 
 </project>
