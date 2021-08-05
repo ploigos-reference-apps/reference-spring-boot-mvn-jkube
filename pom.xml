@@ -249,7 +249,7 @@
             <version>2.19.1</version>
             <configuration>
               <excludes>
-                <exclude>**</exclude>
+                <exclude>**/**</exclude>
               </excludes>
               <includes>
                 <include>**/RunCucumberTest.java</include>
