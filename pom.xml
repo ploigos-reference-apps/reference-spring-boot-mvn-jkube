@@ -108,6 +108,12 @@
       <version>${selenium.version}</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.jboss.logmanager</groupId>
+      <artifactId>jboss-logmanager</artifactId>
+      <version>2.1.18.Final</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -256,7 +262,7 @@
             <version>2.19.1</version>
             <configuration>
               <excludes>
-                <exclude>**/**</exclude>
+                <exclude>none</exclude>
               </excludes>
               <includes>
                 <include>**/RunCucumberTest.java</include>

@@ -59,8 +59,8 @@ public class StepDefinitions {
         body = getBody();
     }
 
-    @Then("^I get (.*)$")
-    public void i_get_comparison(String expected) throws Throwable {
+    @Then("^I should get (.*)$")
+    public void i_should_get(String expected) throws Throwable {
         assertTrue(body == expected);
     }
 
