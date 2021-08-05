@@ -29,4 +29,9 @@ public class HelloController {
         return "Hello World";
     }
 
+    @RequestMapping("/ian")
+    public String ian() {
+        return "Good Morning, Ian";
+    }
+
 }
