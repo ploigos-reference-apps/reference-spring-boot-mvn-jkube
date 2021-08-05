@@ -37,6 +37,9 @@
 
   <properties>
     <jkube.version>1.4.0</jkube.version>
+    <cucumber.version>6.6.1</cucumber.version>
+    <selenium.version>3.141.59</selenium.version>
+    <surefire-plugin.version>2.22.1</surefire-plugin.version>
   </properties>
 
   <dependencies>
@@ -63,6 +66,42 @@
         </exclusion>
       </exclusions>
     </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit-platform-engine</artifactId>
+      <version>${cucumber.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-remote-driver</artifactId>
+      <version>${selenium.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-chrome-driver</artifactId>
+      <version>${selenium.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-support</artifactId>
+      <version>${selenium.version}</version>
+      <scope>test</scope>
+    </dependency>
   </dependencies>
 
   <build>
@@ -71,6 +110,22 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire-plugin.version}</version>
+        <configuration>
+          <systemProperties>
+            <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+            <selenium.hub.host>${selenium.hub.host}</selenium.hub.host>
+            <selenium.hub.port>${selenium.hub.port}</selenium.hub.port>
+            <target.base.url>${target.base.url}</target.base.url>
+          </systemProperties>
+          <excludes>
+            <exclude>**/RunCucumberTest.java</exclude>
+          </excludes>
+        </configuration>
       </plugin>
 
     </plugins>
