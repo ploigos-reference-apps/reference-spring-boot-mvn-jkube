@@ -24,4 +24,9 @@ public class HelloController {
         return "Greetings from Spring Boot with YAML files!!";
     }
 
+    @RequestMapping("/world")
+    public String world() {
+        return "Hello World";
+    }
+
 }

@@ -5,7 +5,7 @@ step-runner-config:
 
   global-defaults:
     organization: ploigos-ref
-    service-name: hello-world
+    service-name: hello
 
     maven-servers:
       nexus.apps.tssc.rht.set.com:
