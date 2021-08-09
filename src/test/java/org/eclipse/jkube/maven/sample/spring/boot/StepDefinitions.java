@@ -22,7 +22,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.assertEquals;
 
 public class StepDefinitions {
     private final String hubUrl = System.getProperty("selenium.hub.url");
@@ -61,7 +61,7 @@ public class StepDefinitions {
 
     @Then("^I should get (.*)$")
     public void i_should_get(String expected) throws Throwable {
-        assertTrue(body.equals(expected));
+        assertEquals("Actual body does not match expected body", body, expected);
     }
 
     @Then("I clean up")

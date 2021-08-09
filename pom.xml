@@ -72,6 +72,8 @@
       <artifactId>javax.json-api</artifactId>
       <version>1.1.4</version>
     </dependency>
+
+    <!-- UAT dependencies -->
     <dependency>
       <groupId>io.cucumber</groupId>
       <artifactId>cucumber-java</artifactId>
@@ -114,6 +116,7 @@
       <version>2.1.18.Final</version>
       <scope>test</scope>
     </dependency>
+
   </dependencies>
 
   <build>
@@ -124,20 +127,130 @@
         <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
 
+      <!-- EXAMPLE: Using Surefire for both Unit Tests and UAT, unit tests are default
+
+           # run unit tests
+           mvn test
+
+           # run integration tests (and not unit tests)
+           mvn integration-test -DskipTests -Dselenium.hub.url= -Dtarget.base.url=
+      -->
+<!--
       <plugin>
         <artifactId>maven-surefire-plugin</artifactId>
         <version>${surefire-plugin.version}</version>
         <configuration>
+          <configuration>
+              <reportsDirectory>${project.build.directory}/surefire-reports-unit-test</reportsDirectory>
+            </configuration>
+        </configuration>
+        <executions>
+          <execution>
+            <id>integration-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <skipTests>${skipITs}</skipTests>
+              <reportsDirectory>${project.build.directory}/surefire-reports-uat</reportsDirectory>
+              <systemProperties>
+                <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+              </systemProperties>
+              <includes>
+                <include>**/*IT.*</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+-->
+
+      <!-- EXAMPLE: Using Surefire for both Unit Tests and UAT, named unit test execution
+
+           # run unit tests
+           mvn test
+
+           # run integration tests (and not unit tests)
+           mvn integration-test -DskipTests -Dselenium.hub.url= -Dtarget.base.url=
+      -->
+<!--
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire-plugin.version}</version>
+        <configuration>
+          <skipTests>true</skipTests>
+        </configuration>
+        <executions>
+          <execution>
+            <id>unit-tests</id>
+            <phase>test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <skipTests>${skipTests}</skipTests>
+              <reportsDirectory>${project.build.directory}/surefire-reports-unit-test</reportsDirectory>
+            </configuration>
+          </execution>
+          <execution>
+            <id>integration-tests</id>
+            <phase>integration-test</phase>
+            <goals>
+              <goal>test</goal>
+            </goals>
+            <configuration>
+              <skipTests>${skipITs}</skipTests>
+              <reportsDirectory>${project.build.directory}/surefire-reports-uat</reportsDirectory>
+              <systemProperties>
+                <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+              </systemProperties>
+              <includes>
+                <include>**/*IT.*</include>
+              </includes>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+-->
+
+      <!--  EXAMPLE: Using Surefire for Unit Tests and Failsafe for UAT
+            NOTE: for some reason need to use failsafe 2.22.2,
+                  3.0.0-M5 was not showing cucumber test results
+
+            # run unit tests
+            mvn test
+
+            # run integration tests (and not unit tests)
+            mvn integration-test -DskipTests -Dselenium.hub.url= -Dtarget.base.url=
+      -->
+      <plugin>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>${surefire-plugin.version}</version>
+        <configuration>
+          <configuration>
+              <reportsDirectory>${project.build.directory}/surefire-reports-unit-test</reportsDirectory>
+            </configuration>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>2.22.2</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <skipTests>false</skipTests>
+          <reportsDirectory>${project.build.directory}/surefire-reports-uat</reportsDirectory>
           <systemProperties>
             <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
-            <selenium.hub.host>${selenium.hub.host}</selenium.hub.host>
-            <selenium.hub.port>${selenium.hub.port}</selenium.hub.port>
-            <target.base.url>${target.base.url}</target.base.url>
           </systemProperties>
-          <excludes>
-            <exclude>**/RunCucumberTest.java</exclude>
-          </excludes>
-          <reportsDirectory>${project.build.directory}/surefire-reports-unit-test</reportsDirectory>
         </configuration>
       </plugin>
 
@@ -252,6 +365,10 @@
         </plugins>
       </build>
     </profile>
+
+    <!-- EXAMPLE: profile for integration tests run during test phase
+         mvn test -Pintegration-test
+    -->
     <profile>
       <id>integration-test</id>
       <build>
@@ -261,13 +378,13 @@
             <artifactId>maven-surefire-plugin</artifactId>
             <version>2.19.1</version>
             <configuration>
-              <excludes>
-                <exclude>none</exclude>
-              </excludes>
               <includes>
-                <include>**/RunCucumberTest.java</include>
+                <include>**/*IT.*</include>
               </includes>
               <reportsDirectory>${project.build.directory}/surefire-reports-integration-test</reportsDirectory>
+              <systemProperties>
+                <java.util.logging.manager>org.jboss.logmanager.LogManager</java.util.logging.manager>
+              </systemProperties>
             </configuration>
           </plugin>
         </plugins>
