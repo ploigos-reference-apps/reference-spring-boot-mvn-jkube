@@ -1,3 +1,23 @@
+# reference-spring-boot-mvn-jkube
+A reference application that is built and unit tested with Maven
+that can be run through the [Ploigos](https://github.com/ploigos) workflows.
+
+Configured to run the following workflows:
+
+* Jenkins
+  * minimal
+  * typical
+  * everything
+* Tekton
+  * minimal
+  * typical
+  * everything
+
+## Source
+
+This is a copy/paste/fork of [jkube/spring-boot-helm](https://github.com/eclipse/jkube/tree/b25157bcafb4a9b6b738a0fce018fc3803e6b78e/quickstarts/maven/spring-boot-helm)
+maintained specifically do integration testing for [Ploigos](https://github.com/ploigos).
+
 # Eclipse JKube Spring Boot with YAML Quickstart
 
 This is a quickstart project to use Eclipse JKube plugin with customized yaml configurations.
