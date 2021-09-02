@@ -39,7 +39,8 @@
     <jkube.version>1.4.0</jkube.version>
     <cucumber.version>6.10.4</cucumber.version>
     <selenium.version>3.141.59</selenium.version>
-    <surefire-plugin.version>2.22.1</surefire-plugin.version>
+    <surefire-plugin.version>2.22.2</surefire-plugin.version>
+    <failsafe-plugin.version>2.22.2</failsafe-plugin.version>
     <build.number>0</build.number> <!-- default value so maven-cucumber-reporting plugin wont error-->
   </properties>
 

@@ -1,5 +1,5 @@
 // Load the Ploigos Jenkins Library
-library identifier: 'ploigos-jenkins-library@v0.20.0',
+library identifier: 'ploigos-jenkins-library@main',
 retriever: modernSCM([
     $class: 'GitSCMSource',
     remote: 'https://github.com/ploigos/ploigos-jenkins-library.git'
@@ -9,16 +9,16 @@ retriever: modernSCM([
 ploigosWorkflowMinimal(
     stepRunnerConfigDir: 'cicd/ploigos-integration-environment/jenkins/minimal/ploigos-step-runner-config/',
 
-    pgpKeysSecretName: 'pgp-keys-ploigos-workflow-ref-spring-boot-jkube-min-hello',
-    workflowServiceAccountName: 'ploigos-workflow-ref-spring-boot-jkube-min-hello',
+    pgpKeysSecretName: 'pgp-keys-ploigos-workflow-ref-spring-boot-jkube-jenkins-min',
+    workflowServiceAccountName: 'ploigos-workflow-ref-spring-boot-jkube-jenkins-min',
 
-    workflowWorkerImageDefault: 'ploigos/ploigos-base:v0.20.0',
-    workflowWorkerImageAgent: 'ploigos/ploigos-ci-agent-jenkins:v0.20.0',
-    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:v0.20.0',
-    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-jkube:v0.20.0',
-    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:v0.20.0',
+    workflowWorkerImageDefault: 'ploigos/ploigos-base:nightly',
+    workflowWorkerImageAgent: 'ploigos/ploigos-ci-agent-jenkins:nightly',
+    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:nightly',
+    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-jkube:nightly',
+    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:nightly',
 
-    workflowWorkersImagePullPolicy: 'IfNotPresent',
+    workflowWorkersImagePullPolicy: 'Always',
     stepRunnerUpdateLibrary: true,
-    stepRunnerLibSourceUrl: 'git+https://github.com/itewk/ploigos-step-runner.git@feature/jkube'
+    stepRunnerLibSourceUrl: "git+https://github.com/ploigos/ploigos-step-runner.git@main"
 )

@@ -14,4 +14,4 @@ rules:
   assertions:
     - key: spec.template.metadata.labels.app
       op: contains
-      value: 'reference-quarkus-mvn-deploy'
+      value: 'reference-spring-boot-mvn-jkube-deploy'
