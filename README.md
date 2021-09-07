@@ -10,8 +10,9 @@ Configured to run the following workflows:
   * everything
 * Tekton
   * minimal
-  * typical
-  * everything
+
+Tested with:
+* Ploigos v0.21.0
 
 ## Source
 
