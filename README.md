@@ -115,3 +115,4 @@ $ helm install spring-boot-helm target/jkube/helm/spring-boot-helm/openshift/
 $ oc expose svc/spring-boot-helm
 $ curl ${route-url}
 ```
+
