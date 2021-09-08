@@ -44,7 +44,7 @@ public class HelloControllerTest {
         final ResultActions result = mockMvc.perform(get("/"));
 
         result.andExpect(status().isOk());
-        result.andExpect(content().string("Greetings from Spring Boot with YAML files!!"));
+        result.andExpect(content().string("Greetings from Spring Boot with YAML files!!!"));
     }
 
 }
