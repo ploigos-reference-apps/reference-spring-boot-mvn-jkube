@@ -21,7 +21,7 @@ public class HelloController {
 
     @RequestMapping("/")
     public String index() {
-        return "Greetings from Spring Boot with YAML files!!";
+        return "Greetings from Spring Boot with YAML files!!!";
     }
 
 }
