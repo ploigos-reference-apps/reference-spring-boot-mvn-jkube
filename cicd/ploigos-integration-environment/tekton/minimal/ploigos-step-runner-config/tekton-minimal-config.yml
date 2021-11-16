@@ -3,7 +3,12 @@ step-runner-config:
   global-defaults:
     application-name: ref-spring-jkube-tekton-min
 
+  generate-metadata:
+  - implementer: Maven
+  - implementer: Git
+  - implementer: SemanticVersion
+
   deploy:
-  - implementer: ArgoCD
+  - implementer: ArgoCDDeploy
     config:
       deployment-config-repo: http://gitea.tssc.rht-set.com/ploigos-reference-applications/reference-spring-boot-mvn-jkube-cloud-resources_tekton_workflow-minimal.git
