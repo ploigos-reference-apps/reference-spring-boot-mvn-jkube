@@ -1,5 +1,5 @@
 // Load the Ploigos Jenkins Library
-library identifier: 'ploigos-jenkins-library@main',
+library identifier: 'ploigos-jenkins-library@v0.22.0',
 retriever: modernSCM([
     $class: 'GitSCMSource',
     remote: 'https://github.com/ploigos/ploigos-jenkins-library.git'
@@ -12,21 +12,18 @@ ploigosWorkflowEverything(
     pgpKeysSecretName: 'pgp-keys-ploigos-workflow-ref-spring-boot-jkube-jenkins-eve',
     workflowServiceAccountName: 'ploigos-workflow-ref-spring-boot-jkube-jenkins-eve',
 
-    workflowWorkerImageDefault: 'ploigos/ploigos-tool-maven:nightly',
-    workflowWorkerImageAgent: 'ploigos/ploigos-ci-agent-jenkins:nightly',
-    workflowWorkerImageUnitTest: 'ploigos/ploigos-tool-maven:nightly',
-    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:nightly',
-    workflowWorkerImageStaticCodeAnalysis: 'ploigos/ploigos-tool-sonar:nightly',
-    workflowWorkerImagePushArtifacts: 'ploigos/ploigos-tool-maven:nightly',
-    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-jkube:nightly',
-    workflowWorkerImageContainerImageStaticComplianceScan: 'ploigos/ploigos-tool-openscap:nightly',
-    workflowWorkerImageContainerImageStaticVulnerabilityScan: 'ploigos/ploigos-tool-openscap:nightly',
-    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:nightly',
-    workflowWorkerImageValidateEnvironmentConfiguration: 'ploigos/ploigos-tool-config-lint:nightly',
-    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:nightly',
-    workflowWorkerImageAutomatedGovernance: 'ploigos/ploigos-tool-autogov:nightly',
-
-    stepRunnerUpdateLibrary: 'true',
-    stepRunnerLibSourceUrl: 'git+https://github.com/ploigos/ploigos-step-runner.git@main',
+    workflowWorkerImageDefault: 'ploigos/ploigos-tool-maven:v1.0.0',
+    workflowWorkerImageAgent: 'ploigos/ploigos-ci-agent-jenkins:v1.0.0',
+    workflowWorkerImageUnitTest: 'ploigos/ploigos-tool-maven:v1.0.0',
+    workflowWorkerImagePackage: 'ploigos/ploigos-tool-maven:v1.0.0',
+    workflowWorkerImageStaticCodeAnalysis: 'ploigos/ploigos-tool-sonar:v1.0.0',
+    workflowWorkerImagePushArtifacts: 'ploigos/ploigos-tool-maven:v1.0.0',
+    workflowWorkerImageContainerOperations: 'ploigos/ploigos-tool-jkube:v1.0.0',
+    workflowWorkerImageContainerImageStaticComplianceScan: 'ploigos/ploigos-tool-openscap:v1.0.0',
+    workflowWorkerImageContainerImageStaticVulnerabilityScan: 'ploigos/ploigos-tool-openscap:v1.0.0',
+    workflowWorkerImageDeploy: 'ploigos/ploigos-tool-argocd:v1.0.0',
+    workflowWorkerImageValidateEnvironmentConfiguration: 'ploigos/ploigos-tool-config-lint:v1.0.0',
+    workflowWorkerImageUAT: 'ploigos/ploigos-tool-maven:v1.0.0',
+    workflowWorkerImageAutomatedGovernance: 'ploigos/ploigos-tool-autogov:v1.0.0',
 
 )
